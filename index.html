@@ -22,92 +22,50 @@
         <script src="js/app.js"></script>
     </head>
     <body ng-app="starter">
-        <ion-pane>
-            <ion-content scroll="false">
-                <div class="calcbody">
-                    <div class="thinborder">
-                        <p class="output" name="output"> 0 </p>
+    <ion-pane>
+        <ion-content scroll="false" ng-controller="AppController">
+            <div class="calcbody">
+                <div class="thinborder">
+                    <div>
+                        <h2 class="output">{{formula.join('')}}</h2>
+                        <h1 class="output"> {{result| number}}</h1>
                     </div>
-                    <div class="row btn-row">
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                1
-                            </button>
+                </div>
+                <div class="row row-center">
+                    <div class="col-75">
+                        <div ng-repeat="number in numbers" ng-if="$index % 3 == 0" class="row row-center btn-row">
+                            <div class="col col-33">
+                                <button class="button button-clear button-stable" ng-click="add(numbers[$index])">
+                                    {{ numbers[$index]}}
+                                </button>
+                            </div>
+                            <div class="col col-33">
+                                <button class="button button-clear button-stable" ng-click="add(numbers[$index + 1])">
+                                    {{ numbers[$index + 1]}}
+                                </button>
+                            </div>
+                            <div class="col col-33">
+                                <button class="button button-clear button-stable" ng-click="add(numbers[$index + 2])">
+                                    {{ numbers[$index + 2]}}
+                                </button>
+                            </div>
                         </div>
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                2
-                            </button>
-                        </div>
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                3
-                            </button>
-                        </div>
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                -
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row btn-row">
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                4
-                            </button>
-                        </div>
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                5
-                            </button>
-                        </div>
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                6
-                            </button>
-                        </div>
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                +
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row btn-row">
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                7
-                            </button>
-                        </div>
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                8
-                            </button>
-                        </div>
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                9
-                            </button>
-                        </div>
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                =
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row btn-row">
-                        <div class="col col-25">
-                            <button class="button button-clear button-stable">
-                                0
-                            </button>
-                        </div>
-                        <div class="col col-75">
-                            <button class="button button-clear button-stable">
+                        <div class="row row-center btn-row">
+                            <button class="button button-clear button-full button-stable" ng-click="reset()">
                                 Clear
                             </button>
                         </div>
-                    </div>                
+                    </div>
+                    <div class="col-25">
+                        <div ng-repeat="operator in operators" class="col">
+                            <button class="button button-clear button-stable" ng-click="add(operator)">
+                                {{ operator}}
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </ion-content>
-        </ion-pane>
-    </body>
+            </div>
+        </ion-content>
+    </ion-pane>
+</body>
 </html>

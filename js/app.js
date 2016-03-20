@@ -5,6 +5,41 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
+    .controller('AppController', ['$scope', function($scope){
+        $scope.numbers   = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '.', '0', ''];
+        $scope.operators = ['DEL', '/', '*', '-', '+'];
+        $scope.formula   = ['0'];
+        $scope.result    = 0;
+
+        $scope.add = function (item) {
+            if (item == '') {
+            } else if (item == 'DEL') {
+                $scope.remove();
+            } else {
+                (!/[0-9]/.test(item) && !/[0-9]/.test($scope.formula.slice(-1)[0])) ? $scope.remove() : null;
+                ($scope.formula == '0' && /[0-9]/.test(item)) ? $scope.formula = [item] : $scope.formula.push(item);
+            }
+            $scope.solve();
+        };
+
+        $scope.solve = function () {
+            if (!/[0-9]/.test($scope.formula.slice(-1)[0]))
+                $scope.result = eval($scope.formula.slice(0, $scope.formula.length - 1).join(''));
+            else
+                $scope.result = eval($scope.formula.join(''));
+        };
+
+        $scope.reset = function () {
+            $scope.formula = ['0'];
+            $scope.solve();
+        };
+
+        $scope.remove = function () {
+            $scope.formula.pop();
+            ($scope.formula.length == 0) ? $scope.reset() : null;
+        };
+    }])
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
