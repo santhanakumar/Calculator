@@ -3,21 +3,22 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'ionic-material'])
 
-    .controller('AppController', ['$scope', function($scope){
-        $scope.numbers   = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '.', '0', ''];
+    .controller('AppController', ['$scope', '$timeout', 'ionicMaterialInk', function($scope, $timeout, ionicMaterialInk){
+        $scope.numbers   = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '.', '0', 'CLEAR'];
         $scope.operators = ['DEL', '/', '*', '-', '+'];
         $scope.formula   = ['0'];
         $scope.result    = 0;
 
         $scope.add = function (item) {
-            if (item == '') {
+            if (item == 'CLEAR') {
+                $scope.reset();
             } else if (item == 'DEL') {
                 $scope.remove();
             } else {
                 (!/[0-9]/.test(item) && !/[0-9]/.test($scope.formula.slice(-1)[0])) ? $scope.remove() : null;
-                ($scope.formula == '0' && /[0-9]/.test(item)) ? $scope.formula = [item] : $scope.formula.push(item);
+                ($scope.formula == '' && /[0-9]/.test(item)) ? $scope.formula = [item] : $scope.formula.push(item);
             }
             $scope.solve();
         };
@@ -38,6 +39,9 @@ angular.module('starter', ['ionic'])
             $scope.formula.pop();
             ($scope.formula.length == 0) ? $scope.reset() : null;
         };
+        $timeout(function(){
+            ionicMaterialInk.displayEffect();
+        }, 1000);
     }])
 
 .run(function($ionicPlatform) {

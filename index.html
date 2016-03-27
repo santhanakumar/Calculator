@@ -6,6 +6,7 @@
         <title></title>
 
         <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+        <link href="lib/Ionic-Material/ionic.material.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
         <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -14,6 +15,7 @@
 
         <!-- ionic/angularjs js -->
         <script src="lib/ionic/js/ionic.bundle.js"></script>
+        <script src="lib/Ionic-Material/ionic.material.min.js"></script>
 
         <!-- cordova script (this will be a 404 during development) -->
         <script src="cordova.js"></script>
@@ -25,40 +27,35 @@
     <ion-pane>
         <ion-content scroll="false" ng-controller="AppController">
             <div class="calcbody">
-                <div class="thinborder">
+                <div class="light-bg padding">
                     <div>
                         <h2 class="output">{{formula.join('')}}</h2>
                         <h1 class="output"> {{result| number}}</h1>
                     </div>
                 </div>
-                <div class="row row-center">
-                    <div class="col-75">
+                <div class="calcbody-button-container row dark-bg z1 row-center">
+                    <div class="col-75 calcbody-numbers">
                         <div ng-repeat="number in numbers" ng-if="$index % 3 == 0" class="row row-center btn-row">
                             <div class="col col-33">
-                                <button class="button button-clear button-stable" ng-click="add(numbers[$index])">
+                                <button class="button button-clear button-fab no-shadow" ng-click="add(numbers[$index])">
                                     {{ numbers[$index]}}
                                 </button>
                             </div>
                             <div class="col col-33">
-                                <button class="button button-clear button-stable" ng-click="add(numbers[$index + 1])">
+                                <button class="button button-clear button-fab no-shadow" ng-click="add(numbers[$index + 1])">
                                     {{ numbers[$index + 1]}}
                                 </button>
                             </div>
                             <div class="col col-33">
-                                <button class="button button-clear button-stable" ng-click="add(numbers[$index + 2])">
+                                <button class="button button-clear button-fab no-shadow" ng-click="add(numbers[$index + 2])">
                                     {{ numbers[$index + 2]}}
                                 </button>
                             </div>
                         </div>
-                        <div class="row row-center btn-row">
-                            <button class="button button-clear button-full button-stable" ng-click="reset()">
-                                Clear
-                            </button>
-                        </div>
                     </div>
                     <div class="col-25">
                         <div ng-repeat="operator in operators" class="col">
-                            <button class="button button-clear button-stable" ng-click="add(operator)">
+                            <button class="button button-clear button-fab no-shadow" ng-click="add(operator)">
                                 {{ operator}}
                             </button>
                         </div>

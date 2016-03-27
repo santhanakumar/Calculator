@@ -1,38 +1,13 @@
-/* Empty. Add your own CSS if you like */
-p {
-    font-size:12px;
-}
-.thinborder {
-    border:1px solid #ccc;
-    height:60px;
-    background:black;
-    -webkit-flex: 1.5 !important;
-    -webkit-align-items: center;
-}
-.calcbuttons {
-    padding:10px;
-}
-.operationbutton {
-    width:35px;
-}
-.clearbutton {
-    width:100px;
-    background-color:green;
-    color:white;
-}
 .output {
-    background:black;
-    color:lime;
-    font-family:"Courier New", Courier;
-    padding:0 10px;
-    text-align:right;
-    font-size:14px;
+    color: #b2b2b2;
+    text-align: right;
+}
+.button-fab.no-shadow {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 .calcbody {
-    background:#306;
-    padding:10px;
-    box-shadow: 5px 5px 5px #888888;
-    border-radius:12px;
     display: -webkit-flex;
     -webkit-flex-direction: column;
     height: 100%;
