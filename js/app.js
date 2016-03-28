@@ -18,7 +18,7 @@ angular.module('starter', ['ionic', 'ionic-material'])
                 $scope.remove();
             } else {
                 (!/[0-9]/.test(item) && !/[0-9]/.test($scope.formula.slice(-1)[0])) ? $scope.remove() : null;
-                ($scope.formula == '' && /[0-9]/.test(item)) ? $scope.formula = [item] : $scope.formula.push(item);
+                ($scope.formula == '0' && /[0-9]/.test(item)) ? $scope.formula = [item] : $scope.formula.push(item);
             }
             $scope.solve();
         };
