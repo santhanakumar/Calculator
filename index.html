@@ -18,7 +18,7 @@
         <script src="lib/Ionic-Material/ionic.material.min.js"></script>
 
         <!-- cordova script (this will be a 404 during development) -->
-        <script src="cordova.js"></script>
+        <!--<script src="cordova.js"></script>-->
 
         <!-- your app's js -->
         <script src="js/app.js"></script>
@@ -34,32 +34,11 @@
                     </div>
                 </div>
                 <div class="calcbody-button-container row dark-bg z1 row-center">
-                    <div class="col-75 calcbody-numbers">
-                        <div ng-repeat="number in numbers" ng-if="$index % 3 == 0" class="row row-center btn-row">
-                            <div class="col col-33">
-                                <button class="button button-clear button-fab no-shadow" ng-click="add(numbers[$index])">
-                                    {{ numbers[$index]}}
-                                </button>
-                            </div>
-                            <div class="col col-33">
-                                <button class="button button-clear button-fab no-shadow" ng-click="add(numbers[$index + 1])">
-                                    {{ numbers[$index + 1]}}
-                                </button>
-                            </div>
-                            <div class="col col-33">
-                                <button class="button button-clear button-fab no-shadow" ng-click="add(numbers[$index + 2])">
-                                    {{ numbers[$index + 2]}}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-25">
-                        <div ng-repeat="operator in operators" class="col">
-                            <button class="button button-clear button-fab no-shadow" ng-click="add(operator)">
-                                {{ operator}}
-                            </button>
-                        </div>
-                    </div>
+                    <ul class="calcbody-numbers">
+                        <md-list-item md-ink-ripple class="md-clickable" ng-repeat="number in numbers">
+                            {{ numbers[$index]}}
+                        </md-list-item>
+                    </ul>
                 </div>
             </div>
         </ion-content>

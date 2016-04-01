@@ -2,19 +2,18 @@
     color: #b2b2b2;
     text-align: right;
 }
-.button-fab.no-shadow {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+ul.calcbody-numbers {
+    float: left;
+    width: 100%;
 }
-.calcbody {
-    display: -webkit-flex;
-    -webkit-flex-direction: column;
-    height: 100%;
-}
-.calcbody .row {
-    -webkit-flex: 1;
-}
-.btn-row {
-    -webkit-align-items: center;
+ul.calcbody-numbers li {
+    float: left;
+    width: 33.333%;
+    padding: 1.7em 0;
+    font-size: 2.7em;
+    text-align: center;
+    cursor: pointer;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
