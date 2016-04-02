@@ -33,11 +33,18 @@
                         <h1 class="output"> {{result| number}}</h1>
                     </div>
                 </div>
-                <div class="calcbody-button-container row dark-bg z1 row-center">
-                    <ul class="calcbody-numbers">
-                        <md-list-item md-ink-ripple class="md-clickable" ng-repeat="number in numbers">
-                            {{ numbers[$index]}}
-                        </md-list-item>
+                <div class="calcbody-button-container dark-bg row">
+                    <ul class="calcbody-button calcbody-numbers">
+                        <li class='ink' ng-repeat="number in numbers" ng-click="add(number)">
+                            {{ number }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="calcbody-button-container dark-bg row">
+                    <ul class="calcbody-button calcbody-operator">
+                        <li class='ink' ng-repeat="operator in operators" ng-click="add(number)">
+                            {{ operator }}
+                        </li>
                     </ul>
                 </div>
             </div>

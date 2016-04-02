@@ -6,8 +6,8 @@
 angular.module('starter', ['ionic', 'ionic-material'])
 
     .controller('AppController', ['$scope', '$timeout', 'ionicMaterialInk', function($scope, $timeout, ionicMaterialInk){
-        $scope.numbers   = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '.', '0', 'CLEAR'];
-        $scope.operators = ['DEL', '/', '*', '-', '+'];
+        $scope.numbers   = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '.', '0', '00'];
+        $scope.operators = ['/', '*', '-', '+', '='];
         $scope.formula   = ['0'];
         $scope.result    = 0;
 
