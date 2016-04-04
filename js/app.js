@@ -6,7 +6,7 @@
 angular.module('starter', ['ionic', 'ionic-material'])
 
     .controller('AppController', ['$scope', '$timeout', 'ionicMaterialInk', function($scope, $timeout, ionicMaterialInk){
-        $scope.numbers   = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '.', '0', '00'];
+        $scope.numbers   = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0', '00'];
         $scope.operators = ['/', '*', '-', '+', '='];
         $scope.formula   = ['0'];
         $scope.result    = 0;
@@ -24,10 +24,11 @@ angular.module('starter', ['ionic', 'ionic-material'])
         };
 
         $scope.solve = function () {
-            if (!/[0-9]/.test($scope.formula.slice(-1)[0]))
+            if (!/[0-9]/.test($scope.formula.slice(-1)[0])) {
                 $scope.result = eval($scope.formula.slice(0, $scope.formula.length - 1).join(''));
-            else
+            } else {
                 $scope.result = eval($scope.formula.join(''));
+            }
         };
 
         $scope.reset = function () {

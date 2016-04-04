@@ -27,10 +27,10 @@
     <ion-pane>
         <ion-content scroll="false" ng-controller="AppController">
             <div class="calcbody">
-                <div class="light-bg padding">
+                <div class="calcbody-output-container light-bg padding">
                     <div>
-                        <h2 class="output">{{formula.join('')}}</h2>
-                        <h1 class="output"> {{result| number}}</h1>
+                        <h2 class="output">{{ formula.join('') }} &nbsp; <span ng-click="add('DEL')" class="ink ion-backspace-outline"></span></h2>
+                        <h1 class="output"> {{ result | number }}</h1>
                     </div>
                 </div>
                 <div class="calcbody-button-container dark-bg row">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="calcbody-button-container dark-bg row">
                     <ul class="calcbody-button calcbody-operator">
-                        <li class='ink' ng-repeat="operator in operators" ng-click="add(number)">
+                        <li ng-repeat="operator in operators" ng-click="add(operator)" class='ink'>
                             {{ operator }}
                         </li>
                     </ul>
