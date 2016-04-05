@@ -6,13 +6,14 @@
 angular.module('starter', ['ionic', 'ionic-material'])
 
     .controller('AppController', ['$scope', '$timeout', 'ionicMaterialInk', function($scope, $timeout, ionicMaterialInk){
-        $scope.numbers   = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0', '00'];
+        $scope.numbers   = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '.', '0', '00'];
         $scope.operators = ['/', '*', '-', '+', '='];
         $scope.formula   = ['0'];
         $scope.result    = 0;
 
         $scope.add = function (item) {
-            if (item == 'CLEAR') {
+            if (item == '=') {
+            } else if (item == 'CLEAR') {
                 $scope.reset();
             } else if (item == 'DEL') {
                 $scope.remove();

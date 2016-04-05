@@ -26,26 +26,22 @@
     <body ng-app="starter">
     <ion-pane>
         <ion-content scroll="false" ng-controller="AppController">
-            <div class="calcbody">
-                <div class="calcbody-output-container light-bg padding">
-                    <div>
-                        <h2 class="output">{{ formula.join('') }} &nbsp; <span ng-click="add('DEL')" class="ink ion-backspace-outline"></span></h2>
-                        <h1 class="output"> {{ result | number }}</h1>
+            <div class="calcbody flexbox">
+                <div class="calcbody-output-container flexbox">
+                    <div class="output">{{ formula.join('') }} &nbsp; <span ng-click="add('DEL')" class="ink ion-backspace-outline"></span></div>
+                    <div class="output"> {{ result | number }} &nbsp;</div>
+                </div>
+                <div class="calcbody-button-container number-container flexbox">
+                    <div ng-repeat="number in numbers" ng-if="$index % 3 == 0" class="row">
+                        <div class='ink' ng-click="add(numbers[$index])">{{ numbers[$index] }}</div>
+                        <div class='ink' ng-click="add(numbers[$index + 1])">{{ numbers[$index + 1] }}</div>
+                        <div class='ink' ng-click="add(numbers[$index + 2])">{{ numbers[$index + 2] }}</div>
                     </div>
                 </div>
-                <div class="calcbody-button-container dark-bg row">
-                    <ul class="calcbody-button calcbody-numbers">
-                        <li class='ink' ng-repeat="number in numbers" ng-click="add(number)">
-                            {{ number }}
-                        </li>
-                    </ul>
-                </div>
-                <div class="calcbody-button-container dark-bg row">
-                    <ul class="calcbody-button calcbody-operator">
-                        <li ng-repeat="operator in operators" ng-click="add(operator)" class='ink'>
-                            {{ operator }}
-                        </li>
-                    </ul>
+                <div class="calcbody-button-container operator-container flexbox">
+                    <div class="row">
+                        <div ng-repeat="operator in operators" ng-click="add(operator)" class='ink'>{{ operator }}</div>
+                    </div>
                 </div>
             </div>
         </ion-content>

@@ -1,35 +1,54 @@
+.flexbox {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+}
 .calcbody-output-container {
     background-color: #304047;
+    height: 20%;
 }
-.output {
+.number-container {
+    height: 64%;
+}
+.operator-container {
+    height: 16%;
+}
+.calcbody-output-container > div {
     color: #FFF;
     text-align: right;
+    height: 50%;
+    font-size: 2.5em;
 }
-.calcbody-button-container {
+.number-container > div, .operator-container > div {
     padding: 0;
+    margin: 0;
+    display: table;
 }
-ul.calcbody-button {
-    float: left;
-    width: 100%;
-}
-ul.calcbody-button li {
-    float: left;
-    padding: 1.5em 0;
-    font-size: 2.7em;
+.operator-container > div > div, .number-container > div > div {
+    display: table-cell;
+    vertical-align: middle;
     text-align: center;
-    cursor: pointer;
-    color: #FFF;
+    font-size: 2.5em;
+    background-color: #048B7E;
     border: 1px solid #29A99C;
 }
-ul.calcbody-numbers li {
+.number-container > div {
+    height: 25.1%;
+}
+.number-container > div > div {
     width: 33.333%;
-    background-color: #009889;
 }
-ul.calcbody-operator li {
-    width: 20%;
-    background-color: #048B7E;
-    border: none;
+.operator-container > div {
+    height: 100%;
 }
-ul.calcbody-operator li:last-child {
+.operator-container > div > div {
+    border-right: none;
+    border-left: none;
+}
+.operator-container > div > div:last-child {
     background-color: #E4AE04;
 }
