@@ -16,12 +16,15 @@
 }
 .operator-container {
     height: 16%;
+    -webkit-flex-direction: row;
+    flex-direction: row;
 }
 .calcbody-output-container > div {
     color: #FFF;
     text-align: right;
     height: 50%;
     font-size: 2.5em;
+    padding-right: 0.2em;
 }
 .number-container > div, .operator-container > div {
     padding: 0;
@@ -37,7 +40,7 @@
     border: 1px solid #29A99C;
 }
 .number-container > div {
-    height: 25.1%;
+    height: 27%;
 }
 .number-container > div > div {
     width: 33.333%;
@@ -48,6 +51,7 @@
 .operator-container > div > div {
     border-right: none;
     border-left: none;
+    width: 20%;
 }
 .operator-container > div > div:last-child {
     background-color: #E4AE04;
